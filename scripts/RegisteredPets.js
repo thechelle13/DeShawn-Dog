@@ -1,5 +1,4 @@
-import { getPets } from "./database.js"
-import { Walkers } from "./Walkers.js"
+import { getPets, getWalkers } from "./database.js"
 
 
 // Follow this algorithm.
@@ -33,11 +32,11 @@ document.addEventListener(
 
             let matchingWalker = null        
                 for (let walker of walkers) {
-                    if (walker.id === matchingPet.walkerId)  {
+                    if (matchingPet.walkerId === walker.id)  {
                             matchingWalker = walker
                         }
                     }    
-                    window.alert(`${matchingPet.name} barks at you.`)
+                    window.alert(`${matchingPet.name} being walked by ${matchingWalker.name}.`)
             }
             
             
@@ -47,7 +46,7 @@ document.addEventListener(
 
 const pets = getPets()
 
-const walkers = Walkers()
+const walkers = getWalkers()
 
 
 
